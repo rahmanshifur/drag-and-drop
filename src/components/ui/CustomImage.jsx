@@ -1,7 +1,12 @@
 import Image from "next/image";
-const CustomImage = ({ src }) => {
+const CustomImage = ({ src, width = 111, height = 111 }) => {
   return (
-    <Image src={src} width={111} height={111} alt="Picture of the author" />
+    <Image
+      src={src}
+      width={width}
+      height={height}
+      alt="Picture of the author"
+    />
   );
 };
 
