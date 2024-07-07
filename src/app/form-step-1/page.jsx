@@ -1,10 +1,12 @@
 "use client";
 import { Box, Container, Divider } from "@mui/material";
+import Image1 from "../../assets/images/image-1.png";
 import ImageCard from "../../components/ImageCard";
 import Form1 from "../../components/form/Form1";
 import Heading from "../../components/ui/Heading";
 import PrimaryBtn from "../../components/ui/PrimaryBtn";
 import SubTitle from "../../components/ui/SubTitle";
+
 
 const FormStep1 = () => {
   return (
@@ -23,7 +25,7 @@ const FormStep1 = () => {
           color="warning"
           sx={{ margin: "16px 0" }}
         />
-        <ImageCard />
+        <ImageCard src={Image1} />
         <Form1 />
       </Container>
     </Box>
