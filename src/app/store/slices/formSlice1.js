@@ -1,9 +1,7 @@
 const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
-   name: '',
-   gender: '',
-   concern: ''
+   data: JSON.parse(localStorage.getItem('form1Data')) || []
 }
 
 export const formSlice1 = createSlice({
@@ -12,14 +10,14 @@ export const formSlice1 = createSlice({
    reducers: {
       getData: (state) => state,
       createData: (state, action) => {
-         const { name, gender, concern } = action.payload;
-         state.name = name;
-         state.gender = gender;
-         state.concern = concern;
+         state.data.push(action.payload);
+         localStorage.setItem('form1Data', JSON.stringify(state.data));
+      },
+      loadData: (state, action) => {
+         state.data = action.payload;
       }
    }
 })
 
-const { getData, createData } = formSlice1.actions;
-
+export const { createData, loadData } = formSlice1.actions;
 export default formSlice1.reducer;

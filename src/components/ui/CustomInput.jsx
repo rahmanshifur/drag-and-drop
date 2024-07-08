@@ -10,6 +10,7 @@ const CustomInput = ({
   handleChange,
   value,
   required,
+  type
 }) => {
 
 
@@ -17,6 +18,7 @@ const CustomInput = ({
     <Box width={"100%"}>
       {label && <CustomLabel label={label} required={required} />}
       <TextField
+        type={type}
         multiline={multiline}
         rows={rows}
         fullWidth

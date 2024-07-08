@@ -8,7 +8,7 @@ import formSlice2 from "./slices/fromSlice2";
 
 const store = configureStore({
    reducer: {
-      formReuder1: formSlice1,
+      formReudcer1: formSlice1,
       formReducer2: formSlice2,
       counterReducer: counterSlice,
    }

@@ -2,9 +2,7 @@ const { createSlice } = require("@reduxjs/toolkit")
 
 
 const initialState = {
-   selectConcern: '',
-   concernArea: '',
-   detailsConcern: '',
+   data: []
 }
 
 export const formSlice2 = createSlice({
@@ -12,15 +10,12 @@ export const formSlice2 = createSlice({
    initialState,
    reducers: {
       getData: (state) => state,
-      crateData: (state, action) => {
-         const { selectConcern, concernArea, detailsConcern } = action.payload;
-         state.selectConcern = selectConcern;
-         state.concernArea = concernArea;
-         state.detailsConcern = detailsConcern;
+      createData: (state, action) => {
+         state.data.push(action.payload)
       }
    }
 })
 
-export const { getData, crateData } = formSlice2.actions;
+export const { getData, createData } = formSlice2.actions;
 
 export default formSlice2.reducer;
