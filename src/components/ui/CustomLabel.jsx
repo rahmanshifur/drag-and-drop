@@ -1,16 +1,10 @@
-import { Typography } from "@mui/material";
-import React from "react";
+import { Typography, styled } from "@mui/material";
 
 const CustomLabel = ({ label, required }) => {
   return (
-    <Typography
+    <LableStyle
       component={"label"}
-      sx={{
-        fontSize: 13,
-        fontWeight: 400,
-        color: "#404040",
-        fontFamily: "Inter",
-      }}
+      mb={0.5}
     >
       {label}
       {required && (
@@ -18,8 +12,18 @@ const CustomLabel = ({ label, required }) => {
           *
         </Typography>
       )}
-    </Typography>
+    </LableStyle>
   );
 };
 
 export default CustomLabel;
+
+
+const LableStyle = styled(Typography)(({ theme }) => ({
+  display: 'block',
+  fontSize: 13,
+  fontWeight: 400,
+  color: "#404040",
+  fontFamily: "Inter",
+  [theme.breakpoints.up('sm')]: { fontSize: '16px' }
+}));

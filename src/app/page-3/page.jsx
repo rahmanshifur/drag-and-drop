@@ -1,18 +1,22 @@
 "use client";
-import Heading from "../../components/ui/Heading";
-import PrimaryBtn from "../../components/ui/PrimaryBtn";
-import Image2 from "../../assets/images/image-2.png";
-import { Box, Container, Divider, Grid } from "@mui/material";
-import React from "react";
-import ImageCard from "../../components/ImageCard";
-import Form2 from "../../components/form/Form2";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import SubTitle from "../../components/ui/SubTitle";
+import { Box, Container, Grid } from "@mui/material";
 import CardList from "../../components/CardList";
+import Heading from "../../components/ui/Heading";
 const Page3 = () => {
   return (
-    <Box py={2}>
-      <Container>
+    <Box>
+      <Box sx={{
+        background: '#F4F4F4',
+        padding: '20px',
+        marginBottom: '20px'
+      }}>
+        <Container>
+          <Heading size="large" text={'Client Regimen Request'} sx={{ marginLeft: '50px' }} />
+        </Container>
+      </Box>
+
+      <Container >
         <Grid container spacing={4}>
           <Grid item xs={12} sm={4}>
             <Box

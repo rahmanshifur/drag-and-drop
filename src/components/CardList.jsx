@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import React from "react";
 import Heading from "./ui/Heading";
 import SubTitle from "./ui/SubTitle";
 
@@ -13,7 +12,7 @@ const CardList = () => {
         boxShadow: "5px 5px 5px #cbcbcb",
       }}
     >
-      <Heading text={"Regimen: RGM1264"} size="medium" />
+      <Heading text={"Regimen: RGM1264"} sx={{ fontSize: { xs: '' } }} />
       <SubTitle
         text={"21:30:47 , 4 June 2024"}
         size="small"

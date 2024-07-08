@@ -7,15 +7,16 @@ const ImageCard = ({ src, title, subTitle }) => {
   return (
     <Box
       sx={{
-        width: "180px",
+        width: { xs: "180px", sm: '250px' },
         margin: "0 auto",
         textAlign: "center",
+        marginBottom: '6px'
       }}
     >
       {title && (
         <Heading
-          text="Let’s get started!"
-          size="medium"
+          text={title}
+          size="large"
           color="#404040"
           sx={{ marginBottom: "4px" }}
         />
@@ -23,9 +24,8 @@ const ImageCard = ({ src, title, subTitle }) => {
       {subTitle && (
         <SubTitle
           text={subTitle}
-          size="small"
           color="#404040"
-          sx={{ marginBottom: "12px" }}
+          sx={{ marginBottom: "12px", fontSize: '130px' }}
         />
       )}
       <CustomImage src={src} />

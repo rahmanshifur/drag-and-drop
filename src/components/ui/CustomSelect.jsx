@@ -1,9 +1,7 @@
 "use client";
-import { Box, Select, Typography } from "@mui/material";
+import { Box, Select, styled } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import OutlinedInput from "@mui/material/OutlinedInput";
-import { useTheme } from "@mui/material/styles";
-import * as React from "react";
 import lightImg from "../../assets/images/lignt.png";
 import CustomImage from "./CustomImage";
 import CustomLabel from "./CustomLabel";
@@ -18,93 +16,71 @@ const MenuProps = {
   },
 };
 
-function getStyles(name, personName, theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
+
 
 const CustomSelect = ({
   label,
   name,
   placeholder,
-  names,
+  value,
   required,
+  options,
   lightIcon,
+  handleChange
 }) => {
-  const theme = useTheme();
-  const [personName, setPersonName] = React.useState([]);
-
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(typeof value === "string" ? value.split(",") : value);
-  };
 
   return (
     <Box width={"100%"}>
       {label && <CustomLabel label={label} required={required} />}
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: "15px",
-        }}
-      >
+      <BoxWrapper>
         <Select
           fullWidth
           size="small"
-          inputProps={{ style: { fontSize: 12, fontFamily: "Inter" } }}
+          inputProps={{ style: { fontSize: { xs: '12px', sm: '14px' }, fontFamily: "Inter" } }}
           name={name}
           displayEmpty
-          value={personName}
+          value={value}
           onChange={handleChange}
-          renderValue={(selected) => {
-            if (selected.length === 0) {
-              return (
-                <Typography sx={{ color: "#404040", fontSize: 12 }}>
-                  {placeholder}
-                </Typography>
-              );
-            }
 
-            return selected.join(", ");
-          }}
           MenuProps={MenuProps}
-          input={<OutlinedInput sx={{ fontSize: 12, fontFamily: "Inter" }} />}
+          input={<OutlinedInput sx={{ fontSize: { xs: '12px', sm: '14px' }, fontFamily: "Inter" }} />}
         >
-          <MenuItem disabled value="" sx={{ color: "#404040", fontSize: 12 }}>
+          <MenuItem disabled value="" sx={{ color: "#404040", fontSize: { xs: '12px', sm: '14px' } }}>
             {placeholder}
           </MenuItem>
-          {names.map((name) => (
+          {options?.map((item) => (
             <MenuItem
-              sx={{ color: "#404040", fontSize: 12 }}
-              key={name}
-              value={name}
-              style={getStyles(name, personName, theme)}
+              sx={{ color: "#404040", fontSize: { xs: '12px', sm: '14px' } }}
+              key={item}
+              value={item}
             >
-              {name}
+              {item}
             </MenuItem>
           ))}
         </Select>
         {lightIcon && (
-          <Box
-            sx={{
-              border: "1px solid #cbcbcb",
-              borderRadius: "3px",
-              padding: "4px",
-            }}
+          <IconImgStyle
+
           >
-            <CustomImage src={lightImg} width={20} height={20} />
-          </Box>
+            <CustomImage src={lightImg} />
+          </IconImgStyle>
         )}
-      </Box>
+      </BoxWrapper>
     </Box>
   );
 };
 
 export default CustomSelect;
+
+
+const IconImgStyle = styled(Box)(({ theme }) => ({
+  border: "1px solid #cbcbcb",
+  borderRadius: "3px",
+  padding: "4px",
+}))
+const BoxWrapper = styled(Box)(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  gap: "15px",
+}))
+

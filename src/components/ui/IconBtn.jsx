@@ -1,32 +1,34 @@
-import { Button } from "@mui/material";
-import React from "react";
+import { Button, styled } from "@mui/material";
 
-const IconBtn = ({ text, type, onClick, sx }) => {
+const IconBtn = (props) => {
+  const { text, type, onClick, sx } = props;
   return (
-    <Button
+    <IconBtnStyled
       type={type}
       onClick={onClick}
       size="medium"
       variant="outlined"
-      sx={{
-        ...sx,
-        font: 14,
-        fontFamily: "Inter",
-        backgroundColor: "#fff",
-        minWidth: "30px",
-        paddingX: "10px",
-        borderColor: "#B7B7B7",
-        color: "#B7B7B7",
-        ":hover": {
-          backgroundColor: "#fff",
-          borderColor: "#B7B7B7",
-          color: "#B7B7B7",
-        },
-      }}
     >
       {text}
-    </Button>
+    </IconBtnStyled>
   );
 };
 
 export default IconBtn;
+
+
+const IconBtnStyled = styled(Button)(({ props: sx, theme }) => ({
+  ...sx,
+  font: 14,
+  fontFamily: "Inter",
+  backgroundColor: "#fff",
+  minWidth: "30px",
+  paddingX: "10px",
+  borderColor: "#B7B7B7",
+  color: "#B7B7B7",
+  ":hover": {
+    backgroundColor: "#fff",
+    borderColor: "#B7B7B7",
+    color: "#B7B7B7",
+  },
+}));

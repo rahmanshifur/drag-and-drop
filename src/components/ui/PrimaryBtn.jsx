@@ -1,31 +1,33 @@
-import { Button } from "@mui/material";
+import { Button, styled } from "@mui/material";
 
-const PrimaryBtn = ({ text, type, onClick, sx }) => {
+const PrimaryBtn = (props) => {
+  const { text, type, onClick } = props
+
   return (
-    <Button
+    <ButtonStyle
       type={type}
       onClick={onClick}
       size="medium"
       variant="contained"
-      sx={{
-        ...sx,
-        textTransform: "capitalize",
-        font: 14,
-        fontWeight: 500,
-        fontFamily: "Inter",
-        backgroundColor: "#000",
-        paddingX: "40px",
-        ":hover": {
-          backgroundColor: "#000",
-        },
-      }}
     >
       {text}
-    </Button>
+    </ButtonStyle>
   );
 };
 
 export default PrimaryBtn;
 
+const ButtonStyle = styled(Button)(({ props: sx, theme }) => ({
+  ...sx,
+  textTransform: "capitalize",
+  font: 14,
+  fontWeight: 500,
+  fontFamily: "Inter",
+  backgroundColor: "#000",
+  paddingX: "40px",
+  ":hover": {
+    backgroundColor: "#000",
+  },
+}))
 
 

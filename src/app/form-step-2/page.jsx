@@ -8,7 +8,7 @@ import Heading from "../../components/ui/Heading";
 const FormStep2 = () => {
   return (
     <Box py={2}>
-      <Container>
+      <Container maxWidth='sm'>
         <Heading text="Build Your Regimen" size="large" />
         <Divider
           sx={{

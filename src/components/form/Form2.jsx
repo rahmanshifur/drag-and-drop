@@ -1,37 +1,44 @@
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { Box } from "@mui/material";
+import { useState } from "react";
 import CustomInput from "../ui/CustomInput";
 import CustomSelect from "../ui/CustomSelect";
 import IconBtn from "../ui/IconBtn";
 import PrimaryBtn from "../ui/PrimaryBtn";
+const concerns2 = [
+  "Acne & breakouts",
+
+  "Blackheads",
+
+  "  Dry skin",
+
+  "    Fine lines & wrinkles",
+
+  " Dehydrated skin",
+];
 const Form2 = () => {
-  const concerns = [
-    "Acne & breakouts",
+  const [formData2, setFormData2] = useState({
+    selectConcern: '',
+    concernArea: '',
+    detailsConcern: '',
 
-    "Blackheads",
+  })
 
-    "  Dry skin",
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData2({
+      ...formData2,
+      [name]: value
+    })
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('formData2', formData2)
+  }
 
-    "    Fine lines & wrinkles",
 
-    " Dehydrated skin",
-
-    " Dull Skin",
-
-    "Redness",
-
-    " Excess oil",
-
-    " Uneven skin texture",
-
-    "  Acne scars",
-
-    "  Acne Spot",
-
-    " Hyperpigmentation",
-  ];
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <Box
         sx={{
           display: "flex",
@@ -42,28 +49,34 @@ const Form2 = () => {
         }}
       >
         <CustomSelect
-          names={concerns}
+          options={concerns2}
           label={"What’s your concern?"}
           placeholder={"Select your concern or search by keyword"}
-          name={"name"}
+          name={"selectConcern"}
+          handleChange={handleChange}
+          value={formData2.selectConcern}
         />
 
         <CustomSelect
-          names={concerns}
+          options={concerns2}
           label={"Do you have any eye area concerns, Rasel Miah ?"}
           placeholder={"Select eye area concerns"}
-          name={"name"}
+          name={"concernArea"}
           lightIcon={true}
+          handleChange={handleChange}
+          value={formData2.concernArea}
         />
         <CustomInput
-          label={"What do you like to be called?"}
+          label={"What’s your concern ?"}
           placeholder={
             "Please write details about your skin concerns and mention A to Z skin problem’s"
           }
-          name={"name"}
+          name={"detailsConcern"}
           required
           multiline
           rows={5}
+          handleChange={handleChange}
+          value={formData2.detailsConcern}
         />
         <Box
           sx={{
@@ -72,7 +85,7 @@ const Form2 = () => {
           }}
         >
           <IconBtn text={<KeyboardArrowLeftIcon />} />
-          <PrimaryBtn text="Submit" />
+          <PrimaryBtn type='submit' text="Submit" />
         </Box>
       </Box>
     </form>

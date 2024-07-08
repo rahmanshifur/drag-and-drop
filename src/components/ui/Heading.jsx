@@ -1,25 +1,28 @@
-import { Typography } from "@mui/material";
+import { Typography, styled } from "@mui/material";
+
+const sizes = {
+  small: "14px",
+  medium: "15px",
+  large: "18px",
+};
 
 const Heading = ({ text, size = "large", color = "#000", sx }) => {
-  const sizes = {
-    small: "14px",
-    medium: "15px",
-    large: "18px",
-  };
+
+  const HeadingStyle = styled(Typography)(({ theme }) => ({
+    ...sx,
+    color: { color },
+    fontSize: sizes[size],
+    fontWeight: size === "small" ? 400 : 500,
+    fontFamily: "Inter",
+    [theme.breakpoints.up('sm')]: { fontSize: size === "small" ? '16px' : size === "medium" ? '18px' : size === "large" ? '22px' : '' }
+  }));
 
   return (
-    <Typography
+    <HeadingStyle
       component={size === "small" ? "h6" : "h3"}
-      sx={{
-        ...sx,
-        color: { color },
-        fontSize: sizes[size],
-        fontWeight: size === "small" ? 400 : 500,
-        fontFamily: "Inter",
-      }}
     >
       {text}
-    </Typography>
+    </HeadingStyle>
   );
 };
 

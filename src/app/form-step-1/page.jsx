@@ -11,7 +11,7 @@ import SubTitle from "../../components/ui/SubTitle";
 const FormStep1 = () => {
   return (
     <Box py={2}>
-      <Container>
+      <Container maxWidth='sm'>
         <Heading text="Build Your Regimen" size="large" />
         <Divider
           sx={{
@@ -23,9 +23,15 @@ const FormStep1 = () => {
         <SubTitle
           text=" * Login to sync your profile details for more easy step."
           color="warning"
-          sx={{ margin: "16px 0" }}
+          sx={{ margin: "12px 0 16px 0" }}
         />
-        <ImageCard src={Image1} />
+        <ImageCard
+          src={Image1}
+          title={"Let’s get started!"}
+          subTitle={
+            "It’ll take 2-3 minutes to understand you and your skin concern. "
+          }
+        />
         <Form1 />
       </Container>
     </Box>

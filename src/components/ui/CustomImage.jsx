@@ -1,7 +1,10 @@
+
+import { styled } from "@mui/material";
 import Image from "next/image";
-const CustomImage = ({ src, width = 111, height = 111 }) => {
+const CustomImage = ({ src, width, height, sx }) => {
   return (
     <Image
+      sx={{ ...sx }}
       src={src}
       width={width}
       height={height}
@@ -11,3 +14,9 @@ const CustomImage = ({ src, width = 111, height = 111 }) => {
 };
 
 export default CustomImage;
+
+
+
+const ImageStyle = styled(Image)(({ props: sx, theme }) => ({
+  ...sx,
+}));

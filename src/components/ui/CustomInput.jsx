@@ -7,10 +7,12 @@ const CustomInput = ({
   name,
   multiline,
   rows,
-  onChange,
+  handleChange,
   value,
   required,
 }) => {
+
+
   return (
     <Box width={"100%"}>
       {label && <CustomLabel label={label} required={required} />}
@@ -18,12 +20,12 @@ const CustomInput = ({
         multiline={multiline}
         rows={rows}
         fullWidth
-        size="small"
+        size={'small'}
         placeholder={placeholder}
         name={name}
         required={required}
-        inputProps={{ style: { fontSize: 12, fontFamily: "Inter" } }}
-        onChange={onChange}
+        sx={{ '.MuiOutlinedInput-input': { fontSize: { xs: '12px', sm: '14px' }, fontFamily: "Inter" } }}
+        onChange={handleChange}
         value={value}
       />
     </Box>
