@@ -11,15 +11,15 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/form-step2/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/form-step2/page.js"
-    ],
     "/board/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/board/page.js"
+    ],
+    "/form-step2/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/form-step2/page.js"
     ]
   }
 }

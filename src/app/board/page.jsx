@@ -1,5 +1,6 @@
 "use client";
 
+import PrimaryBtnLink from "@/components/ui/PrimaryBtnLink";
 import { Box, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import DragAndDropContainer from "../../components/DragAndDropContainer";
@@ -55,9 +56,14 @@ const DragAndDropPage = () => {
 
   return (
     <Box sx={{ padding: "16px" }}>
-      <Typography variant="h4" sx={{ marginBottom: "16px" }}>
-        Client Regimen Request
-      </Typography>
+      <Box sx={{ marginLeft: { lg: '90px', sx: '0px' } }}>
+        <Typography variant="h4" sx={{ marginBottom: "16px" }}>
+          Client Regimen Request
+        </Typography>
+        <Box sx={{ margin: '22px 0px' }} >
+          <PrimaryBtnLink text={'Add New One'} href={'/'} />
+        </Box>
+      </Box>
       <DragAndDropContainer columns={layout} onDragEnd={handleDragEnd} />
     </Box>
   );

@@ -28,4 +28,5 @@ const ButtonStyle = styled(Link)(({ props: sx, theme }) => ({
   color: "#fff",
   borderRadius: "8px",
   padding: "10px 15px",
+  margin: "10px 0px"
 }));
