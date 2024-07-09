@@ -1,7 +1,7 @@
 import { Button, styled } from "@mui/material";
 
 const PrimaryBtn = (props) => {
-  const { text, type, onClick } = props
+  const { text, type, onClick } = props;
 
   return (
     <ButtonStyle
@@ -28,6 +28,4 @@ const ButtonStyle = styled(Button)(({ props: sx, theme }) => ({
   ":hover": {
     backgroundColor: "#000",
   },
-}))
-
-
+}));
